@@ -1,12 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 let WebTorrent = require('webtorrent');
 
-let torrentInfoHash = '4c26a4ea5d67e5c31a714a5c6324c8cda03dcdf2';
-
+let infoHash = '4292e9af8c635a4116d9a1b88fb62ffc5c3b9b93'
+let torrentId = `magnet:?xt=urn:btih:${infoHash}&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com`;
 let client = new WebTorrent();
 
-console.log(`Adding torrent ${torrentInfoHash}`)
-client.add(torrentInfoHash, (torrent) => {
+console.log(`Adding torrent ${torrentId}`)
+client.add(torrentId, (torrent) => {
 	console.log('Torrent ready');
 	torrent.on('done', () => {
 		console.log('Torrent done');
