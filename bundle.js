@@ -8,7 +8,7 @@ let buf = new Buffer('Hello, WebTorrent');
 buf.name = 'Hello';
 
 client.seed(buf, (torrent) => {
-	console.log(torrent.infoHash);
+	console.log(`Seeding torrent ${torrent.infoHash}`);
 });
 
 }).call(this,require("buffer").Buffer)

@@ -10,6 +10,12 @@ client.add(torrentId, (torrent) => {
 	console.log('Torrent ready');
 	torrent.on('done', () => {
 		console.log('Torrent done');
+		for(let file of torrent.files) {
+			file.getBuffer((err, buffer) => {
+   				if (err) throw err;
+				console.log(buffer.toString('utf8'));
+			});
+		}
 	});
 });
 
